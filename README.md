@@ -4,6 +4,7 @@
 #### links
 
         http://www.imageprocessingplace.com/root_files_V3/tutorials.htm
+        https://homepages.inf.ed.ac.uk/rbf/HIPR2/index.htm   *****
 
 
 #### todo : negative image
