@@ -12,3 +12,5 @@
 
              A positive image is a normal image. A negative image is a total inversion, in which light areas appear dark and                            vice versa. A negative color image is additionally color-reversed,[2] with red areas appearing cyan, 
              greens appearing magenta, and blues appearing yellow, and vice versa.
+             
+             http://www.imageprocessingplace.com/DIP-3E/dip3e_student_projects.htm
