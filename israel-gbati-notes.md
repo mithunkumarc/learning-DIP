@@ -226,8 +226,55 @@ Size of 2-D grid and data size stored for each individual image pixel.
       It is a plot of the relative frequence of occurence of each of the permitted pixel values in the image against
        the values themselves.
 
+      A discrete probability density function which defines the likelihood of a given pixel value occuring within the image.
+        eg : how much time a pixel value appears in the image.
 
-        
+#### Introduction to Histrogram Equalization
 
+
+      Equalization causes a histogram with bins(vertical lines) grouped closely together to "spread out" into a flat or equalized histogram.
+
+#### Computing the Histogram of an Image
       
+      from PIL import Image
+      from pylab import *
       
+      img = Image.open('images/profile.jpg').convert('L') # L : grey scale image
+      img_array = array(img)
+      #img.show()
+      
+      figure()
+      hist(img_array.flatten(),500) # 500 : number of beans(vertical lines)
+      show()
+
+
+#### Equalizing An Image Histogram
+      
+      import numpy as np
+      import scipy.misc, math
+      from PIL import Image
+      
+      img = Image.open('images/lena512.bmp')
+      
+      img1 = scipy.misc.fromimage(img)
+      fl = img1.flatten() # histogram need 1-d array
+      hist, bins = np.histogram(img1,256,[0,255])
+      
+      cdf = hist.cumsum()
+      cdf_m = np.ma.masked_equal(cdf,0)
+      
+      num_cdf_m = (cdf_m - cdf_m.min())*255
+      den_cdf_m  = (cdf_m.max()-cdf_m.min())
+      
+      cdf_m  = num_cdf_m / den_cdf_m
+      
+      cdf = np.ma.filled(cdf_m,0).astype('uint8')
+      
+      im2 = cdf[fl]
+      
+      im3 = np.reshape(im2,img1.shape)
+      
+      im4 = scipy.misc.toimage(im3)
+      
+      im4.show()
+            
