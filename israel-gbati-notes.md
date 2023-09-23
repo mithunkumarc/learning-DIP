@@ -81,6 +81,17 @@ Size of 2-D grid and data size stored for each individual image pixel.
       rotated_img = img.rotate(45)
       rotated_img.show()
 
-#### 
-  
+#### Analyzing image information, shape, type, datatype
     
+    import numpy as np
+    import matplotlib.pyplot as plt
+    
+    A = plt.imread('images/profile.jpg')
+    #print(A)
+    print(np.shape(A))
+    print(type(A))
+    print(A.dtype)
+    plt.imshow(A)
+    plt.show()
+  
+####     
