@@ -160,8 +160,74 @@ Size of 2-D grid and data size stored for each individual image pixel.
     Object Segmentation and labelling : after recognition/classifying and labelling
 
 
-    
-    
+#### image binarization : Binary thresholding , above threshold one color and below one color
 
+    from PIL import Image
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib import cm
+    from pylab import *
+
+    # picking image from skimage
+    from skimage import data
+    scanned =  data.page()
+    #plt.imshow(scanned)
+    #plt.imshow(scanned, cmap =cm.gray)
     
+    thres =  np.zeros(shape(scanned)).astype('uint8')
+    threshold = 150
+    thres[scanned <threshold] =0
+    thres[scanned >=threshold] = 255
     
+    plt.imshow(thres, cmap=cm.gray)
+    
+    plt.show()
+    
+#### Image Topology
+
+    Investigation of fundamental image properties using morphological operators
+
+#### Neighborhood
+
+    Pixels surrounding a given pixel
+
+#### Adjacency
+
+    Two pixels p and q are 4-adjacent if they are 4-neighbours of each orhter and 8-adjacent if they are 8 neighbours of one another
+
+#### Paths
+    
+    A 4path between two pixels p and q is a sequence of pixels starting with p and ending with q such that each pixel in the sequence is 4-adjacent to its 
+    predecessor in the sequence
+
+
+#### Components
+
+      A set of pixels connected to each other
+
+#### Connectivity 
+
+      Existence path between two pixels
+    
+#### Image processing applications in computer vision
+
+      eg face recognition
+
+      Acquisition -> preprocessing -> segmentation -> feature extraction -> classification -> result
+
+      Acquisition : eyes , color ,nose , about human face  
+      prerocessing : improve qualite of acquired image, eg noise removal
+      segmentation : partitioning image foreground and background, 1. extracting face 2. segmenting facial features
+      feature extraction : 
+      classification : 
+
+#### Image histogram
+
+      It is a plot of the relative frequence of occurence of each of the permitted pixel values in the image against
+       the values themselves.
+
+
+        
+
+      
+      
